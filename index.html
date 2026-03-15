@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="my">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIP PROXY - Premium Edition</title>
+    <style>
+        :root {
+            --primary-red: #ea1212;
+            --bg-dark: #0d1117;
+            --card-bg: #161b22;
+            --text-gray: #8b949e;
+            --ibm-blue: #0f62fe;
+            --unpkg-orange: #ff8c00;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        
+        body { 
+            background-color: var(--bg-dark); 
+            color: #ffffff; 
+            display: flex; 
+            justify-content: center; 
+            padding: 20px; 
+            min-height: 100vh;
+        }
+
+        .container { width: 100%; max-width: 480px; }
+
+        .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; }
+        .logo { font-size: 1.5rem; font-weight: bold; color: var(--primary-red); letter-spacing: 1px; }
+        .admin-link { 
+            background: rgba(33, 38, 45, 0.7); padding: 8px 16px; border-radius: 10px; 
+            color: var(--primary-red); text-decoration: none; font-size: 0.9rem; border: 1px solid var(--primary-red);
+            display: flex; align-items: center; gap: 5px;
+        }
+
+        .status-row { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 25px; }
+        .status-box { 
+            background: var(--card-bg); padding: 15px; border-radius: 15px; 
+            border: 1px solid #30363d; border-left: 4px solid var(--primary-red);
+        }
+        .status-label { font-size: 0.7rem; color: var(--text-gray); text-transform: uppercase; margin-bottom: 5px; }
+        .status-value { font-weight: bold; font-size: 1rem; }
+
+        marquee { color: #facc15; font-size: 0.9rem; margin-bottom: 10px; display: block; }
+
+        .server-card { 
+            background: var(--card-bg); border-radius: 18px; padding: 20px; 
+            margin-bottom: 15px; border: 1px solid rgba(255,255,255,0.05); position: relative;
+        }
+        .unlock-tag {
+            position: absolute; top: 18px; right: 20px; font-size: 0.7rem; 
+            color: #4ade80; background: rgba(74,222,128,0.1); 
+            padding: 4px 10px; border-radius: 6px; border: 1px solid rgba(74,222,128,0.2);
+        }
+        .server-card h3 { font-size: 1rem; margin-bottom: 5px; color: #f0f6fc; }
+        .server-card .sub-text { font-size: 0.75rem; color: var(--text-gray); margin-bottom: 15px; }
+
+        .copy-btn { 
+            width: 100%; padding: 14px; border-radius: 12px; border: none; 
+            background: var(--primary-red); color: #ffffff; font-weight: bold; cursor: pointer; 
+            display: flex; align-items: center; justify-content: center; gap: 8px; 
+            transition: 0.3s; box-shadow: 0 4px 12px rgba(234, 18, 18, 0.2);
+        }
+        .copy-btn:hover { opacity: 0.9; }
+
+        .cdn-card {
+            background: var(--card-bg); border-radius: 18px; padding: 18px; 
+            margin-top: 15px; border: 1px solid rgba(255,255,255,0.05);
+            background: linear-gradient(145deg, #161b22, #1c2128);
+        }
+        .cdn-stats { display: flex; justify-content: space-around; border-top: 1px solid #30363d; padding-top: 12px; }
+        .stat-item { text-align: center; }
+        .stat-label { font-size: 0.6rem; color: var(--text-gray); text-transform: uppercase; }
+        .stat-val { font-size: 0.85rem; color: #4ade80; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">
+            <div class="logo">VIP PROXY</div>
+            <a href="https://m.me/vpnconfigvip" class="admin-link">💶 VIP ဆက်သွယ်ရန်</a>
+        </div>
+
+        <div class="status-row">
+            <div class="status-box">
+                <div class="status-label">System Status</div>
+                <div class="status-value" style="color:#4ade80;">● Online</div>
+            </div>
+            <div class="status-box">
+                <div class="status-label">Access Level</div>
+                <div class="status-value">Free Access</div>
+            </div>
+        </div>
+
+        <marquee>💶 VIP Config များကို အခမဲ့ ရယူအသုံးပြုနိုင်ပါသည် 🔑</marquee>
+
+        <div id="server-container">
+            <div class="server-card">
+                <span class="unlock-tag">✅ Unlocked</span>
+                <h3>SG-Gaming-VIP-01 🇸🇬</h3>
+                <div class="sub-text">VLESS / WS | Port: 443</div>
+                <input type="hidden" id="link1" value="vless://e8841490-6725-45ec-9d6f-730f5ec83d6a@sg1.vipconfig.com:443?path=%2F&security=tls&encryption=none&type=ws#SG-VIP-1">
+                <button class="copy-btn" onclick="copyConfig('link1')">📋 Copy VIP Config 1</button>
+            </div>
+
+            <div class="server-card">
+                <span class="unlock-tag">✅ Unlocked</span>
+                <h3>TH-💯-01 🇹🇭</h3>
+                <div class="sub-text">VLESS / TLS | Port: 443</div>
+                <input type="hidden" id="link2" value="vless://d342d11e-d424-4583-b36e-524ab1f0afa4@mm-th.openzoom.indevs.in:443?path=%2F%3Fed%3D2048&security=tls&encryption=none&insecure=1&host=a.openzoom.indevs.in&fp=randomized&type=ws&allowInsecure=1&sni=a.openzoom.indevs.in#TH-VIP-2">
+
+
+    <div class="server-card">
+        <span class="unlock-tag">✅ Unlocked</span>
+        <h3>SG-VIP-01 🇸🇬</h3>
+        <div class="sub-text">VLESS / WS | Port: 443</div>
+        <input type="hidden" id="link3" value="vless://05b8c783-7f59-47f9-9923-06a465679f6a@www.speedtest.net.bigccoth.indevs.in:443?path=%2F%3Fed%3D2048&security=tls&alpn=h3%2Ch2%2Chttp%2F1.1&encryption=none&insecure=0&host=www.speedtest.net.bigccoth.indevs.in&fp=chrome&type=ws&allowInsecure=0&sni=www.speedtest.net.bigccoth.indevs.in#ais%20VIP%2001%F0%9F%87%B8%F0%9F%87%AC">
+        <button class="copy-btn" onclick="copyConfig('link3')">📋 Copy VIP Config 1</button>
+    </div>
+
+
+    <div class="server-card">
+        <span class="unlock-tag">✅ Unlocked</span>
+        <h3>SG-VIP-01 🇸🇬</h3>
+        <div class="sub-text">VLESS / WS | Port: 443</div>
+        <input type="hidden" id="link4" value="vless://05b8c783-7f59-47f9-9923-06a465679f6a@cloudflare.182682.xyz:443?path=%2F%3Fed%3D2048&security=tls&alpn=h3%2Ch2%2Chttp%2F1.1&encryption=none&insecure=0&host=www.speedtest.net.bigccoth.indevs.in&fp=chrome&type=ws&allowInsecure=0&sni=www.speedtest.net.bigccoth.indevs.in#ais%20VIP%2002%F0%9F%87%B8%F0%9F%87%AC">
+        <button class="copy-btn" onclick="copyConfig('link4')">📋 Copy VIP Config 1</button>
+    </div>
+
+
+    <div class="server-card">
+        <span class="unlock-tag">✅ Unlocked</span>
+        <h3>SG-VIP-01 🇸🇬</h3>
+        <div class="sub-text">VLESS / WS | Port: 443</div>
+        <input type="hidden" id="link5" value="vless://05b8c783-7f59-47f9-9923-06a465679f6a@speed.marisalnc.com:443?path=%2F%3Fed%3D2048&security=tls&alpn=h3%2Ch2%2Chttp%2F1.1&encryption=none&insecure=0&host=www.speedtest.net.bigccoth.indevs.in&fp=chrome&type=ws&allowInsecure=0&sni=www.speedtest.net.bigccoth.indevs.in#ais%20VIP%2003%F0%9F%87%B8%F0%9F%87%AC">
+        <button class="copy-btn" onclick="copyConfig('link5')">📋 Copy VIP Config 1</button>
+    </div>
+
+
+    <div class="server-card">
+        <span class="unlock-tag">✅ Unlocked</span>
+        <h3>SG-VIP-01 🇸🇬</h3>
+        <div class="sub-text">VLESS / WS | Port: 443</div>
+        <input type="hidden" id="link6" value="vless://05b8c783-7f59-47f9-9923-06a465679f6a@freeyx.cloudflare88.eu.org:443?path=%2F%3Fed%3D2048&security=tls&alpn=h3%2Ch2%2Chttp%2F1.1&encryption=none&insecure=0&host=www.speedtest.net.bigccoth.indevs.in&fp=chrome&type=ws&allowInsecure=0&sni=www.speedtest.net.bigccoth.indevs.in#ais%20VIP%2004%F0%9F%87%B8%F0%9F%87%AC">
+        <button class="copy-btn" onclick="copyConfig('link6')">📋 Copy VIP Config 1</button>
+    </div>
+
+    <div class="server-card">
+        <span class="unlock-tag">✅ Unlocked</span>
+        <h3>SG-VIP-01 🇸🇬</h3>
+        <div class="sub-text">VLESS / WS | Port: 443</div>
+        <input type="hidden" id="link7" value="vless://05b8c783-7f59-47f9-9923-06a465679f6a@bestcf.top:443?path=%2F%3Fed%3D2048&security=tls&alpn=h3%2Ch2%2Chttp%2F1.1&encryption=none&insecure=0&host=www.speedtest.net.bigccoth.indevs.in&fp=chrome&type=ws&allowInsecure=0&sni=www.speedtest.net.bigccoth.indevs.in#ais%20VIP%2005%F0%9F%87%B8%F0%9F%87%AC">
+        <button class="copy-btn" onclick="copyConfig('link7')">📋 Copy VIP Config 1</button>
+    </div>
+
+    <div class="server-card">
+        <span class="unlock-tag">✅ Unlocked</span>
+        <h3>SG-VIP-01 🇸🇬</h3>
+        <div class="sub-text">VLESS / WS | Port: 443</div>
+        <input type="hidden" id="link8" value="vless://05b8c783-7f59-47f9-9923-06a465679f6a@cdn.2020111.xyz:443?path=%2F%3Fed%3D2048&security=tls&alpn=h3%2Ch2%2Chttp%2F1.1&encryption=none&insecure=0&host=www.speedtest.net.bigccoth.indevs.in&fp=chrome&type=ws&allowInsecure=0&sni=www.speedtest.net.bigccoth.indevs.in#ais%20VIP%2006%F0%9F%87%B8%F0%9F%87%AC">
+        <button class="copy-btn" onclick="copyConfig('link8')">📋 Copy VIP Config 1</button>
+    </div>
+
+
+    <div class="server-card">
+        <span class="unlock-tag">✅ Unlocked</span>
+        <h3>SG-VIP-01 🇸🇬</h3>
+        <div class="sub-text">VLESS / WS | Port: 443</div>
+        <input type="hidden" id="link9" value="vless://05b8c783-7f59-47f9-9923-06a465679f6a@cfip.cfcdn.vip:443?path=%2F%3Fed%3D2048&security=tls&alpn=h3%2Ch2%2Chttp%2F1.1&encryption=none&insecure=0&host=www.speedtest.net.bigccoth.indevs.in&fp=chrome&type=ws&allowInsecure=0&sni=www.speedtest.net.bigccoth.indevs.in#ais%20VIP%2007%F0%9F%87%B8%F0%9F%87%AC">
+        <button class="copy-btn" onclick="copyConfig('link9')">📋 Copy VIP Config 1</button>
+    </div>
+                <button class="copy-btn" onclick="copyConfig('link2')">📋 Copy VIP Config 2</button>
+            </div>
+        </div>
+
+
+    <div class="server-card">
+        <span class="unlock-tag">✅ Unlocked</span>
+        <h3>SG-VIP-01 🇸🇬</h3>
+        <div class="sub-text">VLESS / WS | Port: 443</div>
+        <input type="hidden" id="link10" value="vless://05b8c783-7f59-47f9-9923-06a465679f6a@cf.0sm.com:443?path=%2F%3Fed%3D2048&security=tls&alpn=h3%2Ch2%2Chttp%2F1.1&encryption=none&insecure=0&host=www.speedtest.net.bigccoth.indevs.in&fp=chrome&type=ws&allowInsecure=0&sni=www.speedtest.net.bigccoth.indevs.in#ais%20VIP%2008%F0%9F%87%B8%F0%9F%87%AC">
+        <button class="copy-btn" onclick="copyConfig('link10')">📋 Copy VIP Config 1</button>
+    </div>
+
+    <div class="server-card">
+        <span class="unlock-tag">✅ Unlocked</span>
+        <h3>SG-VIP-01 🇸🇬</h3>
+        <div class="sub-text">VLESS / WS | Port: 443</div>
+        <input type="hidden" id="link11" value="YOUR_VLESS_LINK_HERE">
+        <button class="copy-btn" onclick="copyConfig('link11')">📋 Copy VIP Config 1</button>
+    </div>
+
+    <div class="server-card">
+        <span class="unlock-tag">✅ Unlocked</span>
+        <h3>SG-VIP-01 🇸🇬</h3>
+        <div class="sub-text">VLESS / WS | Port: 443</div>
+        <input type="hidden" id="link12" value="YOUR_VLESS_LINK_HERE">
+        <button class="copy-btn" onclick="copyConfig('link12')">📋 Copy VIP Config 1</button>
+    </div>
+
+    <div class="server-card">
+        <span class="unlock-tag">✅ Unlocked</span>
+        <h3>SG-VIP-01 🇸🇬</h3>
+        <div class="sub-text">VLESS / WS | Port: 443</div>
+        <input type="hidden" id="link13" value="vless://05b8c783-7f59-47f9-9923-06a465679f6a@cf.090227.xyz:443?path=%2F%3Fed%3D2048&security=tls&alpn=h3%2Ch2%2Chttp%2F1.1&encryption=none&insecure=0&host=www.speedtest.net.bigccoth.indevs.in&fp=chrome&type=ws&allowInsecure=0&sni=www.speedtest.net.bigccoth.indevs.in#ais%20VIP%2009%F0%9F%87%B8%F0%9F%87%AC">
+        <button class="copy-btn" onclick="copyConfig('link13')">📋 Copy VIP Config 1</button>
+    </div>
+
+    <div class="server-card">
+        <span class="unlock-tag">✅ Unlocked</span>
+        <h3>SG-VIP-01 🇸🇬</h3>
+        <div class="sub-text">VLESS / WS | Port: 443</div>
+        <input type="hidden" id="link14" value="vless://05b8c783-7f59-47f9-9923-06a465679f6a@cf.zhetengsha.eu.org:443?path=%2F%3Fed%3D2048&security=tls&alpn=h3%2Ch2%2Chttp%2F1.1&encryption=none&insecure=0&host=www.speedtest.net.bigccoth.indevs.in&fp=chrome&type=ws&allowInsecure=0&sni=www.speedtest.net.bigccoth.indevs.in#ais%20VIP%2010%F0%9F%87%B8%F0%9F%87%AC">
+        <button class="copy-btn" onclick="copyConfig('link14')">📋 Copy VIP Config 1</button>
+    </div>
+
+    <div class="server-card">
+        <span class="unlock-tag">✅ Unlocked</span>
+        <h3>SG-VIP-01 🇸🇬</h3>
+        <div class="sub-text">VLESS / WS | Port: 443</div>
+        <input type="hidden" id="link15" value="vless://35f3e91e-0ff6-457f-a541-b85c2ec5f394@mmth.bigccoth.indevs.in:443?path=%2F%3Fed%3D2048&security=tls&alpn=h3%2Ch2%2Chttp%2F1.1&encryption=none&insecure=0&host=mmth.bigccoth.indevs.in&fp=chrome&type=ws&allowInsecure=0&sni=mmth.bigccoth.indevs.in#TRUE%20VDO%F0%9F%98%86%F0%9F%87%B9%F0%9F%87%AD1">
+        <button class="copy-btn" onclick="copyConfig('link15')">📋 Copy VIP Config 1</button>
+    </div>
+
+    <div class="server-card">
+        <span class="unlock-tag">✅ Unlocked</span>
+        <h3>SG-VIP-01 🇸🇬</h3>
+        <div class="sub-text">VLESS / WS | Port: 443</div>
+        <input type="hidden" id="link16" value="vless://35f3e91e-0ff6-457f-a541-b85c2ec5f394@cloudflare.182682.xyz:443?path=%2F%3Fed%3D2048&security=tls&alpn=h3%2Ch2%2Chttp%2F1.1&encryption=none&insecure=0&host=mmth.bigccoth.indevs.in&fp=chrome&type=ws&allowInsecure=0&sni=mmth.bigccoth.indevs.in#TRUE%20VDO%F0%9F%98%86%F0%9F%87%B9%F0%9F%87%AD2">
+        <button class="copy-btn" onclick="copyConfig('link16')">📋 Copy VIP Config 1</button>
+    </div>
+
+    <div class="server-card">
+        <span class="unlock-tag">✅ Unlocked</span>
+        <h3>SG-VIP-01 🇸🇬</h3>
+        <div class="sub-text">VLESS / WS | Port: 443</div>
+        <input type="hidden" id="link17" value="vless://35f3e91e-0ff6-457f-a541-b85c2ec5f394@speed.marisalnc.com:443?path=%2F%3Fed%3D2048&security=tls&alpn=h3%2Ch2%2Chttp%2F1.1&encryption=none&insecure=0&host=mmth.bigccoth.indevs.in&fp=chrome&type=ws&allowInsecure=0&sni=mmth.bigccoth.indevs.in#TRUE%20VDO%F0%9F%98%86%F0%9F%87%B9%F0%9F%87%AD3">
+        <button class="copy-btn" onclick="copyConfig('link17')">📋 Copy VIP Config 1</button>
+    </div>
+
+    <div class="server-card">
+        <span class="unlock-tag">✅ Unlocked</span>
+        <h3>US-VIP 🇺🇸</h3>
+        <div class="sub-text">VLESS / WS | Port: 443</div>
+        <input type="hidden" id="link18" value="vless://36e1f8a6-6207-4337-82b0-166b46a4586d@freenode2-vps.hf.space:443?path=%2Fvless&security=tls&encryption=none&insecure=1&host=freenode2-vps.hf.space&type=ws&allowInsecure=1&sni=freenode2-vps.hf.space#freenode2-vps.%F0%9F%87%BA%F0%9F%87%B8">
+        <button class="copy-btn" onclick="copyConfig('link18')">📋 Copy VIP Config 1</button>
+    </div>
+
+    <div class="server-card">
+        <span class="unlock-tag">✅ Unlocked</span>
+        တွက်</h3>
+        <div class="sub-text">VLESS / WS | Port: 443</div>
+        <input type="hidden" id="link19" value="vless://094e66a9-8d92-41fe-85ad-8e7bf9b5fcaa@nl-78w-c.southnetworks.cloud:80?path=%2FgetWorkerUpdates&security=none&encryption=none&host=portal-as.ruijienetworks.com&type=ws#%F0%9F%87%B3%F0%9F%87%B1%20Myanmar">
+        <button class="copy-btn" onclick="copyConfig('link19')">📋 Copy VIP Config 1</button>
+    </div>
+
+    <div class="server-card">
+        <span class="unlock-tag">✅ Unlocked</span>
+        <h3>SG-VIP-01 🇸🇬</h3>
+        <div class="sub-text">VLESS / WS | Port: 443</div>
+        <input type="hidden" id="link20" value="YOUR_VLESS_LINK_HERE">
+        <button class="copy-btn" onclick="copyConfig('link20')">📋 Copy VIP Config 1</button>
+    </div>
+
+        <div class="cdn-card" style="border: 1.5px solid var(--primary-red);">
+            <div style="text-align: center; margin-bottom: 15px;"><h3 style="color: var(--primary-red); font-size: 1rem;">NETWORK</h3></div>
+            <div class="cdn-stats">
+                <div class="stat-item"><div class="stat-label">Uptime</div><div class="stat-val">99.9%</div></div>
+                <div class="stat-item"><div class="stat-label">Latency</div><div class="stat-val">&lt; 20ms</div></div>
+                <div class="stat-item"><div class="stat-label">Nodes</div><div class="stat-val">Global</div></div>
+            </div>
+        </div>
+
+        <div class="cdn-card" style="border: 1.5px solid var(--ibm-blue);">
+            <div style="text-align: center; margin-bottom: 15px;"><h3 style="color: var(--ibm-blue); font-size: 1rem;">CDN</h3></div>
+            <div class="cdn-stats">
+                <div class="stat-item"><div class="stat-label">Security</div><div class="stat-val">WAF+</div></div>
+                <div class="stat-item"><div class="stat-label">Edge</div><div class="stat-val">Anycast</div></div>
+                <div class="stat-item"><div class="stat-label">Region</div><div class="stat-val">Global</div></div>
+            </div>
+        </div>
+
+        <div class="cdn-card" style="border: 1.5px solid var(--unpkg-orange);">
+            <div style="text-align: center; margin-bottom: 15px;"><h3 style="color: var(--unpkg-orange); font-size: 1rem;">ကျနော်website</h3></div>
+            <div class="cdn-stats">
+                <div class="stat-item"><div class="stat-label">Network</div><div class="stat-val">Cloudflare</div></div>
+                <div class="stat-item"><div class="stat-label">Cache</div><div class="stat-val">Global</div></div>
+                <div class="stat-item"><div class="stat-label">Status</div><div class="stat-val">Active</div></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function copyConfig(id) {
+            let text = document.getElementById(id).value;
+            
+            // mm-th domain ကို တွေ့လျှင် speedtest bug အဖြစ် အလိုအလျောက် ပြောင်းပေးမည်
+            if(text.includes("mm-th.openzoom.indevs.in")) {
+                text = text.replace("mm-th.openzoom.indevs.in", "www.speedtest.net");
+            }
+
+            navigator.clipboard.writeText(text).then(function() {
+                alert("VIP Config Copied! ✅");
+            }, function(err) {
+                alert("Error: Copy လုပ်မရပါဘူး။");
+            });
+        }
+    </script>
+</body>
+            </html>
+            
